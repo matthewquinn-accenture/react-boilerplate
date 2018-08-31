@@ -1,21 +1,27 @@
 import React from 'react'
-import { shallow } from 'enzyme'
+import { mount } from 'enzyme'
 
 import { App } from '../../src/components/App.jsx'
+import { Home } from '../../src/components/Home.jsx'
+import { About } from '../../src/components/About.jsx'
 
 describe('Example tests for App', () => {
 
   let wrapper;
 
   beforeEach(() => {
-    wrapper = shallow(<App />);
+    wrapper = mount(<App />);
   })
 
   it('app renders on page', () => {
     expect(wrapper).toBeTruthy();
   });
 
-  it('app renders h1 on page', () => {
-    expect(wrapper.containsMatchingElement(<h1> Hello World! </h1>)).toBe(true);
+  it('app renders home component', () => {
+    expect(wrapper.containsMatchingElement(Home)).toBe(true);
+  })
+
+  it('app renders about component', () => {
+    expect(wrapper.containsMatchingElement(About)).toBe(true);
   })
 });
